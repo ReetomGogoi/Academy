@@ -49,3 +49,7 @@ MODULE 1 sec
 12)Matrix Addition and Multiplication
 
 <img width="378" height="230" alt="Screenshot 2025-11-15 234311" src="https://github.com/user-attachments/assets/4fc3ccd9-7bb4-4113-a00a-78b9265ff545" />
+
+
+MODULE 2
+
