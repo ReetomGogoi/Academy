@@ -71,7 +71,7 @@ MODULE 2
 
 5) Ternary Operator
 
-![WhatsApp Image 2025-11-16 at 00 09 46_876b355d](https://github.com/user-attachments/assets/ee0e77d7-fe30-4b09-b245-b727eac620dd)
+<img width="415" height="150" alt="image" src="https://github.com/user-attachments/assets/825ca3d5-bd63-489e-b286-058641358913" />
 
 6) Operator Precedence
 
