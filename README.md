@@ -45,5 +45,7 @@ MODULE 1 sec
 11)Read and Print a 2D Array (Matrix)
 
 <img width="408" height="277" alt="Screenshot 2025-11-15 234230" src="https://github.com/user-attachments/assets/b4e2b103-8f4d-43d1-867c-e13246c038f6" />
+
 12)Matrix Addition and Multiplication
+
 <img width="378" height="230" alt="Screenshot 2025-11-15 234311" src="https://github.com/user-attachments/assets/4fc3ccd9-7bb4-4113-a00a-78b9265ff545" />
