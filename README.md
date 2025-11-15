@@ -75,12 +75,11 @@ MODULE 2
 
 6) Operator Precedence
 
-![WhatsApp Image 2025-11-16 at 00 10 12_5b7d7de8](https://github.com/user-attachments/assets/44ec1ae1-0250-47e8-bd81-4e76471f1d44)
+![WhatsApp Image 2025-11-16 at 00 48 13_832c80d8](https://github.com/user-attachments/assets/cddfd332-0b45-4140-bfaf-f41d092b49df)
 
 7) If-Else Statements
 
-
-![WhatsApp Image 2025-11-16 at 00 10 23_925a9ea9](https://github.com/user-attachments/assets/93f6b8f4-4618-49ed-8f25-6b702b61c8ae)
+![WhatsApp Image 2025-11-16 at 00 49 26_6eaf9077](https://github.com/user-attachments/assets/98983aa1-854e-4ec8-85e3-ee13629e83fc)
 
 8) Multiple If-Else
 
