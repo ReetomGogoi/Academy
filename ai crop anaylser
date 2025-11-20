@@ -1,0 +1,247 @@
+import { useState } from "react";
+import { Upload, Leaf, Droplets, Bug, Sprout, BarChart3 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { toast } from "sonner";
+import UploadZone from "@/components/UploadZone";
+import AnalysisResults from "@/components/AnalysisResults";
+import EnergyDashboard from "@/components/EnergyDashboard";
+
+type AnalysisResult = {
+  waterStress: {
+    status: string;
+    confidence: number;
+    recommendation: string;
+  };
+  nutrientDeficiency: {
+    detected: boolean;
+    type: string;
+    confidence: number;
+  };
+  pestDetection: {
+    detected: boolean;
+    type: string;
+    confidence: number;
+  };
+};
+
+const Index = () => {
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [cropType, setCropType] = useState<string>("wheat");
+  const [analyzing, setAnalyzing] = useState(false);
+  const [results, setResults] = useState<AnalysisResult | null>(null);
+  const [activeTab, setActiveTab] = useState<"analyze" | "history" | "energy">("analyze");
+
+  const handleImageSelect = (file: File) => {
+    setSelectedImage(file);
+    setResults(null);
+  };
+
+  const handleAnalyze = async () => {
+    if (!selectedImage) {
+      toast.error("Please select an image first");
+      return;
+    }
+
+    setAnalyzing(true);
+    
+    // Simulate AI analysis
+    await new Promise(resolve => setTimeout(resolve, 2500));
+
+    const mockResults: AnalysisResult = {
+      waterStress: {
+        status: "moderate",
+        confidence: 0.84,
+        recommendation: "Increase irrigation frequency. Optimal watering: 2-3 times per week."
+      },
+      nutrientDeficiency: {
+        detected: true,
+        type: "Nitrogen deficiency",
+        confidence: 0.76
+      },
+      pestDetection: {
+        detected: false,
+        type: "None detected",
+        confidence: 0.92
+      }
+    };
+
+    setResults(mockResults);
+    setAnalyzing(false);
+    toast.success("Analysis complete!");
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="bg-primary rounded-lg p-2">
+                <Leaf className="h-6 w-6 text-primary-foreground" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">AgriScan Nexus</h1>
+                <p className="text-sm text-muted-foreground">AI-Powered Crop Analysis</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant={activeTab === "analyze" ? "default" : "outline"}
+                onClick={() => setActiveTab("analyze")}
+              >
+                <Sprout className="h-4 w-4 mr-2" />
+                Analyze
+              </Button>
+              <Button
+                variant={activeTab === "history" ? "default" : "outline"}
+                onClick={() => setActiveTab("history")}
+              >
+                <BarChart3 className="h-4 w-4 mr-2" />
+                History
+              </Button>
+              <Button
+                variant={activeTab === "energy" ? "default" : "outline"}
+                onClick={() => setActiveTab("energy")}
+              >
+                <Droplets className="h-4 w-4 mr-2" />
+                Energy
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">
+        {activeTab === "analyze" && (
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Upload Section */}
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Upload Crop Image</CardTitle>
+                  <CardDescription>
+                    Select an image and crop type for AI-powered analysis
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Crop Type</label>
+                    <Select value={cropType} onValueChange={setCropType}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="wheat">Wheat</SelectItem>
+                        <SelectItem value="corn">Corn</SelectItem>
+                        <SelectItem value="rice">Rice</SelectItem>
+                        <SelectItem value="soybean">Soybean</SelectItem>
+                        <SelectItem value="cotton">Cotton</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <UploadZone onImageSelect={handleImageSelect} selectedImage={selectedImage} />
+
+                  <Button 
+                    onClick={handleAnalyze} 
+                    disabled={!selectedImage || analyzing}
+                    className="w-full"
+                    size="lg"
+                  >
+                    {analyzing ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-foreground mr-2" />
+                        Analyzing...
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="h-4 w-4 mr-2" />
+                        Analyze Crop
+                      </>
+                    )}
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-3 gap-4">
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex flex-col items-center text-center">
+                      <Droplets className="h-8 w-8 text-info mb-2" />
+                      <p className="text-2xl font-bold text-foreground">24</p>
+                      <p className="text-xs text-muted-foreground">Total Scans</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex flex-col items-center text-center">
+                      <Bug className="h-8 w-8 text-warning mb-2" />
+                      <p className="text-2xl font-bold text-foreground">3</p>
+                      <p className="text-xs text-muted-foreground">Issues Found</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex flex-col items-center text-center">
+                      <Sprout className="h-8 w-8 text-success mb-2" />
+                      <p className="text-2xl font-bold text-foreground">87%</p>
+                      <p className="text-xs text-muted-foreground">Health Score</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            {/* Results Section */}
+            <div>
+              {results ? (
+                <AnalysisResults results={results} cropType={cropType} />
+              ) : (
+                <Card className="h-full flex items-center justify-center min-h-[500px]">
+                  <CardContent className="text-center py-12">
+                    <div className="bg-muted rounded-full p-6 inline-block mb-4">
+                      <BarChart3 className="h-12 w-12 text-muted-foreground" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      No Analysis Yet
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Upload an image and click analyze to see results
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          </div>
+        )}
+
+        {activeTab === "history" && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Scan History</CardTitle>
+              <CardDescription>View your previous crop analyses</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">
+                  No scan history available. Connect to Lovable Cloud to save and track your analyses.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {activeTab === "energy" && <EnergyDashboard />}
+      </main>
+    </div>
+  );
+};
+
+export default Index;
