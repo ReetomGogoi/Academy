@@ -118,3 +118,53 @@ MODULE 2
     - return
 
       ![WhatsApp Image 2025-11-16 at 00 12 47_03de5ea7](https://github.com/user-attachments/assets/dd55404a-3d50-4897-9186-0d6706939450)
+
+Module-4
+
+1. Single Inheritance
+
+![WhatsApp Image 2025-11-16 at 01 39 04_cb666a14](https://github.com/user-attachments/assets/ccc7c412-09d3-4b07-83df-b6a1b4d6b56a)
+
+2. Multilevel Inheritance
+
+![WhatsApp Image 2025-11-16 at 01 40 17_a2cb2042](https://github.com/user-attachments/assets/3773dd41-3da1-4f53-9cc4-79a9c191515d)
+
+3. Hierarchical Inheritance
+
+![WhatsApp Image 2025-11-16 at 01 40 52_54c19bcb](https://github.com/user-attachments/assets/491917f8-866a-4f62-a6d6-1dd1fce9099c)
+
+4. Multiple Inheritance (Through Interfaces)
+
+![WhatsApp Image 2025-11-16 at 01 41 24_65bd9cc6](https://github.com/user-attachments/assets/3bc81648-8da6-4c7a-b08f-ee36174d2780)
+
+5. Manager-Employee Exercise
+
+![WhatsApp Image 2025-11-16 at 01 41 59_c6be9891](https://github.com/user-attachments/assets/39d3f175-ffbf-44e1-a089-8985460682cc)
+
+6. Shape Exercise
+
+![WhatsApp Image 2025-11-16 at 01 42 38_8a5ed77b](https://github.com/user-attachments/assets/e8096f02-3868-4a4f-9dec-0d75f98b0b7e)
+
+7. Transport Exercise
+
+![WhatsApp Image 2025-11-16 at 01 43 15_ca4f1469](https://github.com/user-attachments/assets/cdf94f15-e46f-4691-8060-7b538fbe83de)
+
+8. Method Overriding
+
+![WhatsApp Image 2025-11-16 at 01 43 57_465fd8b5](https://github.com/user-attachments/assets/5bcf2ea5-541e-4cc0-a1ed-ff095ed92123)
+
+9. Hospital Exercise
+
+![WhatsApp Image 2025-11-16 at 01 44 33_1057a74e](https://github.com/user-attachments/assets/e7390722-3e52-46ba-bf34-673f84343640)
+
+10. Dynamic Method Dispatch
+
+![WhatsApp Image 2025-11-16 at 01 45 05_d74ab86b](https://github.com/user-attachments/assets/05a2f95f-6c1f-4e67-90c3-c73ce11a5142)
+
+11. Payment System Exercise
+
+![WhatsApp Image 2025-11-16 at 01 45 41_e253d644](https://github.com/user-attachments/assets/cfe7f7af-fd7b-4fb7-b967-d4b7ec112f12)
+
+12. Logistics App Exercise
+
+![WhatsApp Image 2025-11-16 at 01 46 13_b710108e](https://github.com/user-attachments/assets/e2d900f3-40ae-4ecc-9a0c-9f6e2abe8de7)
